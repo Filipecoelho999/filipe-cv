@@ -51,7 +51,7 @@ export default function App() {
           <a href="#education" className="hover:text-black dark:hover:text-white">Education</a>
           <a href="#projects" className="hover:text-black dark:hover:text-white">Projects</a>
           <a href="#skills" className="hover:text-black dark:hover:text-white">Skills</a>
-          <a href="#languages" className="hover:text-black dark:hover:text-white">Languages</a>
+          <a href="#others" className="hover:text-black dark:hover:text-white">Others</a>
           <a
             href="/CV_Filipe_Coelho.pdf"
             target="_blank"
@@ -193,7 +193,7 @@ export default function App() {
       </section>
 
       {/* Spoken Languages & Interests */}
-      <section id="languages" className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16">
+      <section id="others" className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16">
         {/* Spoken Languages */}
         <div className="rounded-2xl border p-8 shadow-md
                         bg-white border-neutral-200 text-neutral-900
