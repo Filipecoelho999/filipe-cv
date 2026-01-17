@@ -25,6 +25,7 @@ const tools = [
 ];
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
   useEffect(() => {
@@ -43,50 +44,124 @@ export default function App() {
       dark:from-slate-900 dark:via-slate-950 dark:to-black
       text-neutral-900 dark:text-neutral-100 transition-colors duration-300"
   >
-    {/* Navbar */}
-    <nav className="fixed top-0 left-0 w-full bg-white/70 dark:bg-black/40 backdrop-blur z-50 border-b border-black/10 dark:border-white/10">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center text-sm">
-        <span className="font-semibold tracking-wide">Filipe Coelho</span>
-        <div className="flex gap-5 text-neutral-700 dark:text-neutral-300 items-center">
-          <a href="#education" className="hover:text-black dark:hover:text-white">Education</a>
-          <a href="#projects" className="hover:text-black dark:hover:text-white">Projects</a>
-          <a href="#skills" className="hover:text-black dark:hover:text-white">Skills</a>
-          <a href="#others" className="hover:text-black dark:hover:text-white">Others</a>
-          <a
-            href="/CV_Filipe_Coelho.pdf"
-            target="_blank"
-            className="text-amber-400 hover:text-amber-500"
-          >
-            CV
-          </a>
-          <a
-            href="https://www.linkedin.com/in/filipe-coelho-363718278"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white flex items-center gap-2"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-              <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.2 8h4.6v16H.2V8Zm7.3 0h4.4v2.2h.1c.6-1.1 2.1-2.3 4.3-2.3 4.6 0 5.4 3 5.4 6.9V24h-4.6v-7.9c0-1.9 0-4.3-2.6-4.3s-3 2-3 4.1V24H7.5V8Z" />
-            </svg>
-          </a>
+{/* Navbar */}
+<nav className="fixed top-0 left-0 w-full z-50
+  bg-white/70 dark:bg-black/40 backdrop-blur
+  border-b border-black/10 dark:border-white/10">
 
-          {/* Theme Toggle */}
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="ml-2 p-2 rounded-full border border-black/10 dark:border-white/10
-              hover:bg-black/5 dark:hover:bg-white/10 transition"
-          >
-            {theme === "dark" ? "🌙" : "☀️"}
-          </button>
-        </div>
+  <div className="max-w-6xl mx-auto px-4 md:px-6 py-4
+    flex justify-between items-center text-sm">
+
+    {/* Logo */}
+    <span className="font-semibold tracking-wide">
+      Filipe Coelho
+    </span>
+
+    {/* Desktop menu */}
+    <div className="hidden md:flex gap-5 items-center
+      text-neutral-700 dark:text-neutral-300">
+
+      <a href="#education" className="hover:text-black dark:hover:text-white">Education</a>
+      <a href="#projects" className="hover:text-black dark:hover:text-white">Projects</a>
+      <a href="#skills" className="hover:text-black dark:hover:text-white">Skills</a>
+      <a href="#others" className="hover:text-black dark:hover:text-white">Others</a>
+
+      <a
+        href="/CV_Filipe_Coelho.pdf"
+        target="_blank"
+        className="text-amber-400 hover:text-amber-500"
+      >
+        CV
+      </a>
+
+      {/* LinkedIn */}
+      <a
+        href="https://www.linkedin.com/in/filipe-coelho-363718278"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-black dark:hover:text-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          fill="currentColor" className="w-4 h-4">
+          <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.2 8h4.6v16H.2V8Zm7.3 0h4.4v2.2h.1c.6-1.1 2.1-2.3 4.3-2.3 4.6 0 5.4 3 5.4 6.9V24h-4.6v-7.9c0-1.9 0-4.3-2.6-4.3s-3 2-3 4.1V24H7.5V8Z" />
+        </svg>
+      </a>
+
+      {/* Theme toggle */}
+      <button
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        className="ml-2 p-2 rounded-full border
+        border-black/10 dark:border-white/10
+        hover:bg-black/5 dark:hover:bg-white/10 transition"
+      >
+        {theme === "dark" ? "🌙" : "☀️"}
+      </button>
+    </div>
+
+    {/* Mobile menu button */}
+    <button
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="md:hidden text-2xl"
+    >
+      ☰
+    </button>
+  </div>
+
+  {/* Mobile menu */}
+  {menuOpen && (
+    <div className="md:hidden bg-white dark:bg-black
+      border-t border-black/10 dark:border-white/10">
+
+      <div className="flex flex-col px-6 py-6 gap-4
+        text-neutral-700 dark:text-neutral-300">
+
+        <a onClick={() => setMenuOpen(false)} href="#education">Education</a>
+        <a onClick={() => setMenuOpen(false)} href="#projects">Projects</a>
+        <a onClick={() => setMenuOpen(false)} href="#skills">Skills</a>
+        <a onClick={() => setMenuOpen(false)} href="#others">Others</a>
+
+        <a
+          href="/CV_Filipe_Coelho.pdf"
+          target="_blank"
+          className="text-amber-400"
+        >
+          CV
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/filipe-coelho-363718278"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            fill="currentColor" className="w-4 h-4">
+            <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.2 8h4.6v16H.2V8Zm7.3 0h4.4v2.2h.1c.6-1.1 2.1-2.3 4.3-2.3 4.6 0 5.4 3 5.4 6.9V24h-4.6v-7.9c0-1.9 0-4.3-2.6-4.3s-3 2-3 4.1V24H7.5V8Z" />
+          </svg>
+          LinkedIn
+        </a>
+
+        <button
+          onClick={() => {
+            setTheme(theme === "dark" ? "light" : "dark");
+            setMenuOpen(false);
+          }}
+          className="self-start mt-2 px-3 py-2 rounded-full border
+          border-black/10 dark:border-white/10"
+        >
+          {theme === "dark" ? "🌙 Dark" : "☀️ Light"}
+        </button>
       </div>
-    </nav>
+    </div>
+  )}
+</nav>
+
 
     <main className="pt-28">
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 min-h-[80vh] flex flex-col justify-center">
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight">Filipe Coelho</h1>
-        <p className="mt-4 text-xl text-neutral-400">Computer Engineer</p>
+        <p className="mt-4 text-xl text-neutral-400">Software Engineer</p>
         <p className="mt-8 max-w-3xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
           I am a Computer Engineer highly motivated to acquire new knowledge and experience, aiming to build a solid career and contribute to projects with real impact. I value teamwork, adaptability, organization and continuous learning.
         </p>
