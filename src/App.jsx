@@ -67,7 +67,7 @@ export default function App() {
       <a href="#others" className="hover:text-black dark:hover:text-white">Others</a>
 
       <a
-        href="/CV_Filipe_Coelho.pdf"
+        href="/Filipe_Coelho.pdf"
         target="_blank"
         className="text-amber-400 hover:text-amber-500"
       >
@@ -121,7 +121,7 @@ export default function App() {
         <a onClick={() => setMenuOpen(false)} href="#others">Others</a>
 
         <a
-          href="/CV_Filipe_Coelho.pdf"
+          href="/Filipe_Coelho.pdf"
           target="_blank"
           className="text-amber-400"
         >
