@@ -61,6 +61,7 @@ export default function App() {
     <div className="hidden md:flex gap-5 items-center
       text-neutral-700 dark:text-neutral-300">
 
+      <a href="#experience" className="hover:text-black dark:hover:text-white">Experience</a>
       <a href="#education" className="hover:text-black dark:hover:text-white">Education</a>
       <a href="#projects" className="hover:text-black dark:hover:text-white">Projects</a>
       <a href="#skills" className="hover:text-black dark:hover:text-white">Skills</a>
@@ -115,6 +116,7 @@ export default function App() {
       <div className="flex flex-col px-6 py-6 gap-4
         text-neutral-700 dark:text-neutral-300">
 
+        <a onClick={() => setMenuOpen(false)} href="#experience">Experience</a>
         <a onClick={() => setMenuOpen(false)} href="#education">Education</a>
         <a onClick={() => setMenuOpen(false)} href="#projects">Projects</a>
         <a onClick={() => setMenuOpen(false)} href="#skills">Skills</a>
@@ -161,11 +163,30 @@ export default function App() {
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 min-h-[80vh] flex flex-col justify-center">
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight">Filipe Coelho</h1>
-        <p className="mt-4 text-xl text-neutral-400">Software Engineer</p>
+        <p className="mt-4 text-xl text-neutral-400">Computer Engineer</p>
         <p className="mt-8 max-w-3xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
           I am a Computer Engineer highly motivated to acquire new knowledge and experience, aiming to build a solid career and contribute to projects with real impact. I value teamwork, adaptability, organization and continuous learning.
         </p>
       </section>
+
+      {/* Experience */}
+      <section id="experience" className="max-w-6xl mx-auto px-6 py-24">
+        <h2 className="section-title">Experience</h2>
+
+        <div className="rounded-2xl border p-6 shadow-md
+                  bg-white text-neutral-900 border-neutral-200
+                  dark:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-900
+                  transition-colors duration-300">
+
+          <h3 className="text-xl font-medium">Software Developer </h3>
+
+          <p className="text-neutral-600 dark:text-neutral-400">
+            DataCentric · Internship · 2025 — Present
+          </p>
+
+    
+        </div>
+        </section>
 
       {/* Education */}
       <section id="education" className="max-w-6xl mx-auto px-6 py-24">
